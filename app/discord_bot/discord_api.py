@@ -42,22 +42,14 @@ async def play(ctx, url):
     audio_source = await discord.FFmpegOpusAudio.from_probe(url)
     voice_state.play(audio_source)
 
-@client.command()
-async def ai(ctx, *args):
-    user_message = " ".join(args)
-    bot_response = chatgpt_response(prompt=user_message)
-    await ctx.send(f"Answer: {bot_response}")
+
 
 @client.command()
 async def bot(ctx, *args):
     user_message = " ".join(args)
     bot_response = chatgpt_response(prompt=user_message)
     await ctx.send(f"Answer: {bot_response}")
-@client.command()
-async def chatgpt(ctx, *args):
-    user_message = " ".join(args)
-    bot_response = chatgpt_response(prompt=user_message)
-    await ctx.send(f"Answer: {bot_response}")
+
 
 @client.command()
 async def reminder(ctx, time, *, reminder):
